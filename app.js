@@ -16,8 +16,6 @@ let maximoDeIntentos = 5
 
 function generarNumeroSecreto() {
     let numeroGenerado = Math.floor(Math.random()*numeroMaximo)+1;
-    console.log(numeroGenerado);
-    console.log(listaNumerosSorteados);
     if(listaNumerosSorteados.length == numeroMaximo){
     textInert(`Llegaste al final del juego, acertaste todos los números aleatorios.`, 'p')
 
@@ -31,6 +29,7 @@ function generarNumeroSecreto() {
     }
 }
 
+// Función que contiene la configuración inicial del juego.
 function condicionesIniciales() {
     textInert('Juego del número secreto', 'h1')
     textInert(`Digite un número del 1 al ${numeroMaximo}, tienes un máximo de ${maximoDeIntentos}
@@ -40,11 +39,12 @@ function condicionesIniciales() {
 }
 
 condicionesIniciales();
-// Functión para verificar si el usuario acertó el número secreto
+// Función para verificar si el usuario acertó el número secreto
 // obteniendo el valor del input donde el usuario ingresa su
-//intento de número y extraemos ese valor para realizar la verificación
+// número, extraemos ese valor para realizar la verificación.
 // Buscamos el valor mediante el id del input y su value, por si tenemos más de un input
-
+// Evaluamos los diferentes casos dando pistas al usario sobre cual podría ser el número en base a si es mayor o menor
+// Y en caso de alcanzar el número máximo de intentos terminar le ejecución ahí para volver a iniciar todo.
 function verificarNumero(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
     
